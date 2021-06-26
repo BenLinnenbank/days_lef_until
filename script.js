@@ -22,8 +22,7 @@ const getRandomPartyGIF = async () => {
     console.log(randomPartyGIFObj);
 
     gif.src = await randomPartyGIFObj.data.images.original.url;
-    gif.style.maxWidth = `${randomPartyGIFObj.data.images.original.width}`;
-    gif.style.maxHeight = `${randomPartyGIFObj.data.images.original.height}`;
+    gif.style.objectFit = "contain";
 
 }
 
