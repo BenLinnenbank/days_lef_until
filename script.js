@@ -9,21 +9,21 @@ const calculateDaysLeft = () => {
 
     const differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24));
 
-    return differenceInDays.toString();
+    daysLeftContainer.innerHTML = `Only ${differenceInDays.toString()} days left!!!`;
 }
 
-daysLeftContainer.innerHTML = `Only ${calculateDaysLeft()} days left!!!`;
 
 const getRandomPartyGIF = async () => {
-    const response = await fetch('https://api.giphy.com/v1/gifs/random?api_key=4ioDDWCUu8WJPtzMSNtPxCdQQLlDWoff&tag=excited&rating=g');
+    try {
+        const response = await fetch('https://api.giphy.com/v1/gifs/random?api_key=4ioDDWCUu8WJPtzMSNtPxCdQQLlDWoff&tag=excited&rating=g');
 
-    const randomPartyGIFObj = await response.json();
+        const randomPartyGIFObj = await response.json();
 
-    console.log(randomPartyGIFObj);
-
-    gif.src = await randomPartyGIFObj.data.images.original.url;
-    gif.style.objectFit = "contain";
-
+        gif.src = await randomPartyGIFObj.data.images.original.url;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
+calculateDaysLeft();
 getRandomPartyGIF();
