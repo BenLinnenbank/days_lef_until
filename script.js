@@ -9,7 +9,7 @@ const calculateDaysLeft = () => {
 
     const differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24));
 
-    daysLeftContainer.innerHTML = `Only ${differenceInDays.toString()} days left!!!`;
+    daysLeftContainer.innerHTML = `ONLY ${differenceInDays.toString()} DAYS LEFT!!!`;
 }
 
 
